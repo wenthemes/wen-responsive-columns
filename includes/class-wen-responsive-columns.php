@@ -75,6 +75,7 @@ class WEN_Responsive_Columns {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+    $this->init_shortcodes();
 
 	}
 
@@ -107,6 +108,12 @@ class WEN_Responsive_Columns {
 		 * of the plugin.
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wen-responsive-columns-i18n.php';
+
+    /**
+     * The class responsible for defining shortcodes of the plugin.
+     */
+    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wen-responsive-columns-shortcode.php';
+
 
 		/**
 		 * The class responsible for defining all actions that occur in the Dashboard.
@@ -142,12 +149,26 @@ class WEN_Responsive_Columns {
 	}
 
 	/**
-	 * Register all of the hooks related to the dashboard functionality
-	 * of the plugin.
+	 * Register shortcodes.
 	 *
 	 * @since    1.0.0
 	 * @access   private
 	 */
+  public function init_shortcodes(){
+
+    $plugin_shortcode = new WEN_Responsive_Columns_Shortcode();
+    $plugin_shortcode->init();
+
+  }
+
+
+  /**
+   * Register all of the hooks related to the dashboard functionality
+   * of the plugin.
+   *
+   * @since    1.0.0
+   * @access   private
+   */
 	private function define_admin_hooks() {
 
 		$plugin_admin = new WEN_Responsive_Columns_Admin( $this->get_plugin_name(), $this->get_version() );
@@ -169,7 +190,15 @@ class WEN_Responsive_Columns {
 		$plugin_public = new WEN_Responsive_Columns_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+    $this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
+
+    // Call shortcode for column content
+    add_filter( 'wrc_column_content', 'do_shortcode' );
+
+    // Fix p and br tag bug
+    remove_filter( 'the_content', 'wpautop' );
+    add_filter( 'the_content', 'wpautop' , 12);
+		$this->loader->add_filter( 'wrc_column_content', $plugin_public, 'fix_extra_tags', 12 );
 
 	}
 

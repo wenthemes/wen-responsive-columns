@@ -100,4 +100,17 @@ class WEN_Responsive_Columns_Public {
 
 	}
 
+  /**
+   * Fix p and br tag bug.
+   *
+   * @since    1.0.0
+   */
+  function fix_extra_tags( $content ){
+
+    $content = wpautop( trim( $content ) );
+    return $content;
+
+  }
+
+
 }
