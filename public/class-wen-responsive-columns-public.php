@@ -3,7 +3,7 @@
 /**
  * The public-facing functionality of the plugin.
  *
- * @link       http://example.com
+ * @link       http://wenthemes.com
  * @since      1.0.0
  *
  * @package    WEN_Responsive_Columns
@@ -18,7 +18,7 @@
  *
  * @package    WEN_Responsive_Columns
  * @subpackage WEN_Responsive_Columns/public
- * @author     Your Name <email@example.com>
+ * @author     WEN Themes <info@wenthemes.com>
  */
 class WEN_Responsive_Columns_Public {
 

@@ -6,7 +6,7 @@
  * Loads and defines the internationalization files for this plugin
  * so that it is ready for translation.
  *
- * @link       http://example.com
+ * @link       http://wenthemes.com
  * @since      1.0.0
  *
  * @package    WEN_Responsive_Columns
@@ -22,7 +22,7 @@
  * @since      1.0.0
  * @package    WEN_Responsive_Columns
  * @subpackage WEN_Responsive_Columns/includes
- * @author     Your Name <email@example.com>
+ * @author     WEN Themes <info@wenthemes.com>
  */
 class WEN_Responsive_Columns_i18n {
 
