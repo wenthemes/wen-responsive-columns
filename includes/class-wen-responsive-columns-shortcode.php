@@ -34,6 +34,7 @@ class WEN_Responsive_Columns_Shortcode {
       'grid'  => '2',
       'width' => '1',
       'type'  => '',
+      'class'  => '',
     ), $atts, 'wrc_column' );
 
     $output = '';
@@ -42,15 +43,26 @@ class WEN_Responsive_Columns_Shortcode {
       $output .= '<div class="wrc-column-grid wrc-column-grid-' . $args['grid'] . '">';
     }
 
-    // Content
-    $output .= '<div class="wrc-column wrc-column-width-' . $args['width'];
+    // Column classes
+    $classes = array( 'wrc-column' );
+    $classes[] = 'wrc-column-width-' . $args['width'];
     if ( 'start' == $args['type'] ) {
-      $output .= ' wrc-column-start';
+      $classes[] = 'wrc-column-start';
     }
     else if ( 'end' == $args['type'] ) {
-      $output .= ' wrc-column-end';
+      $classes[] = 'wrc-column-end';
     }
-    $output .= '">';
+    if ( ! empty( $args['class'] ) ) {
+      $extra_class = preg_split( '#\s+#', $args['class'] );
+      array_walk( $extra_class, 'esc_attr' );
+      if ( ! empty( $extra_class ) ) {
+        $classes = array_merge( $classes, $extra_class );
+      }
+    }
+    $classes_text = ' class="' . implode( ' ', $classes ) . '" ';
+
+    // Content
+    $output .= '<div '.$classes_text . '>';
     $output .= apply_filters( 'wrc_column_content', $content );
     $output .= '</div>';
 
