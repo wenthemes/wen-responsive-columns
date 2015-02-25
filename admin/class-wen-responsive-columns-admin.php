@@ -137,6 +137,7 @@ class WEN_Responsive_Columns_Admin {
               <option value="5"><?php _e( '5', 'wen-responsive-columns' ); ?></option>
               <option value="12"><?php _e( '12', 'wen-responsive-columns' ); ?></option>
             </select>
+            <p class="description"><?php _e( 'Please select grid. Grid represents maximum number of columns allowed.', 'wen-responsive-columns' ); ?></p><!-- .description -->
           </div><!-- .form-row -->
 
           <div class="form-row">
@@ -144,11 +145,14 @@ class WEN_Responsive_Columns_Admin {
             <select name="wrc-column-number" id="wrc-column-number">
               <option value=""><?php _e( 'Select', 'wen-responsive-columns' ); ?></option>
             </select>
+            <p class="description"><?php _e( 'Please select number of columns.', 'wen-responsive-columns' ); ?></p><!-- .description -->
+
           </div><!-- .form-row -->
 
-          <div class="form-row">
+          <div class="form-row" id="wrc-column-mix-wrap" style="display:none;">
             <label><?php _e( 'Column Mix:', 'wen-responsive-columns' ); ?></label>
             <div id="wrc-column-mix">&nbsp;</div><!-- #wrc-column-mix -->
+            <p class="description"><?php _e( 'Please enter column mix. Eg, for grid 3 and columns 2, mix could be 1-2 or 2-1', 'wen-responsive-columns' ); ?></p><!-- .description -->
           </div><!-- .form-row -->
 
           <div class="form-row">

@@ -20,6 +20,7 @@
       $('#wrc-column-number').html('');
       // Append options html to select field
       $('#wrc-column-number').append( options_html );
+      $('#wrc-column-mix-wrap').fadeOut();
 
     }// end function
 
@@ -34,10 +35,12 @@
         for( var i = 0; i < wrc_column_number ; i++ ){
           texts_html += '<input type="number" class="column-mix-item" maxlength="2" min="1" max="12" />';
         }
+        $('#wrc-column-mix-wrap').slideDown();
       }
       else{
         // No value
         texts_html = '';
+        $('#wrc-column-mix-wrap').slideUp();
       }
       // Inject html
       $('#wrc-column-mix').html( texts_html );
