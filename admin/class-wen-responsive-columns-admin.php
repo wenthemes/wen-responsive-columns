@@ -77,6 +77,177 @@ class WEN_Responsive_Columns_Admin {
 
 	}
 
+  /**
+   * Hook Tiny MCE buttons.
+   *
+   * @since    1.0.0
+   */
+  function tinymce_button(){
+
+    if ( current_user_can( 'edit_posts' ) && current_user_can( 'edit_pages' ) ) {
+         add_filter( 'mce_buttons', array($this,'register_tinymce_button' ) );
+         add_filter( 'mce_external_plugins', array($this,'add_tinymce_button' ) );
+    }
+
+  }
+
+  /**
+   * Register TinyMce Button.
+   *
+   * @since    1.0.0
+   */
+  function register_tinymce_button( $buttons ){
+
+    array_push( $buttons, 'wen_responsive_columns' );
+    return $buttons;
+
+  }
+
+  /**
+   * Add TinyMCE Button.
+   *
+   * @since    1.0.0
+   */
+  function add_tinymce_button( $plugin_array ){
+
+    $plugin_array['wen_responsive_columns'] = WEN_RESPONSIVE_COLUMNS_URL . '/admin/js/wen-responsive-columns-tinymce-plugin.js';
+    return $plugin_array;
+
+  }
+
+
+  /**
+   * TinyMCE popup.
+   *
+   * @since    1.0.0
+   */
+  function tinymce_popup(){
+    ?>
+    <div id="WLS-popup-form" style="display:none">
+      <div>
+      <?php
+      $args = array(
+        'posts_per_page' => -1,
+        );
+      $all_slides = get_posts($args);
+       ?>
+       <?php if ( ! empty($all_slides ) ): ?>
+          <p><?php _e( 'Select Slider', 'wen-logo-slider' ); ?>
+          <select name="wls-slide" id="wls-slide">
+          <?php foreach ($all_slides as $key => $slide): ?>
+
+              <option value="<?php echo esc_attr( $slide->ID); ?>"><?php echo esc_attr( $slide->post_title); ?></option>
+
+          <?php endforeach ?>
+          </select>
+          </p>
+          <p class="submit">
+            <input type="button" id="WLS-submit" class="button-primary" value="<?php esc_attr( _e( 'Insert', 'wen-logo-slider' ) ); ?>" name="submit" />
+          </p>
+          <script type="text/javascript">
+
+          jQuery(document).ready(function($){
+            $('#WLS-submit').click(function(e){
+              e.preventDefault();
+
+              var shortcode = '[WLS';
+              var wls_slide = $('#wls-slide').val();
+              if ( '' != wls_slide) {
+                shortcode += ' id="'+wls_slide+'"';
+              }
+              shortcode += ']';
+
+              // inserts the shortcode into the active editor
+              tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
+
+              // closes Thickbox
+              tb_remove();
+
+            });
+          });
+
+             </script>
+
+        <?php else: ?>
+          <p><strong><?php _e( 'No slider found', 'wen-logo-slider' ); ?></strong></p>
+       <?php endif ?>
+
+      </div>
+    </div><!-- #WLS-popup-form -->
+    <?php
+
+
+  }
+
+
+  /**
+   * HTML template for TinyMce opup.
+   *
+   * @since    1.0.0
+   */
+  function html_templates(){
+    ?>
+    <script type="text/template" id='template-wls-slider-item'>
+      <div class="slide-item-wrap">
+        <div class="slide-item-left">
+          <div class="wls-form-row">
+            <input type="hidden" name="slide_image_id[]" value="" class="wls-slide-image-id" />
+            <input type="button" class="wls-select-img button button-primary" value="<?php _e( 'Upload', 'wen-logo-slider' ); ?>" data-uploader_button_text="<?php _e( 'Select', 'wen-logo-slider' );?>" data-uploader_title="<?php _e( 'Select Image', 'wen-logo-slider' );?>" />
+            <div class="image-preview-wrap" style="display:none;" >
+              <img class="img-preview" alt="<?php _e( 'Preview', 'wen-logo-slider' ); ?>" src="" />
+              <a href="#" class="btn-wls-remove-image-upload">
+                <span class="dashicons dashicons-dismiss"></span>
+              </a>
+            </div>
+
+          </div>
+        </div>
+        <div class="slide-item-right">
+
+          <div class="wls-form-row">
+            <i class="dashicons dashicons-editor-textcolor"></i>
+            <input type="text" name="slide_title[]" value="" placeholder="<?php _e( 'Enter Title', 'wen-logo-slider' ); ?>" class="txt-slide-title regular-text code" />
+            <span class="description"><?php _e( 'Enter Title', 'wen-logo-slider' ); ?></span>
+          </div>
+
+          <div class="wls-form-row">
+            <i class="dashicons dashicons-admin-site"></i>
+
+            <input type="text" name="slide_url[]" value="" placeholder="<?php _e( 'Enter URL', 'wen-logo-slider' ); ?>" class="txt-slide-url regular-text code" />
+            <span class="description"><?php _e( 'Enter URL', 'wen-logo-slider' ); ?></span>
+          </div>
+
+          <div class="wls-form-row">
+            <i class="dashicons dashicons-share-alt2"></i>
+            <select name="slide_new_window[]">
+              <option value="yes"><?php _e( 'Yes', 'wen-logo-slider' ); ?></option>
+              <option value="no"><?php _e( 'No', 'wen-logo-slider' ); ?></option>
+            </select>
+            <span class="description"><?php _e( 'Open in new window', 'wen-logo-slider' ); ?></span>
+
+          </div>
+
+          <input type="button" value="<?php  esc_attr( _e( 'Remove', 'wen-logo-slider' ) ); ?>" class="button btn-remove-slide-item"/>
+
+        </div>
+    </script>
+
+    <?php
+  }
+
+
+  /**
+   * Load TinyMce languages file.
+   *
+   * @since    1.0.0
+   */
+  function tinymce_external_language( $locales ){
+
+    $locales ['wen-responsive-columns'] = WEN_RESPONSIVE_COLUMNS_DIR. '/admin/partials/wen-responsive-columns-tinymce-plugin-langs.php';
+    return $locales;
+
+  }
+
 	/**
 	 * Register the JavaScript for the dashboard.
 	 *

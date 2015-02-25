@@ -30,6 +30,14 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+// Define
+define( 'WEN_RESPONSIVE_COLUMNS_NAME', 'WEN Responsive Columns' );
+define( 'WEN_RESPONSIVE_COLUMNS_SLUG', 'wen-responsive-columns' );
+define( 'WEN_RESPONSIVE_COLUMNS_BASENAME', basename( dirname( __FILE__ ) ) );
+define( 'WEN_RESPONSIVE_COLUMNS_DIR', rtrim( plugin_dir_path( __FILE__ ), '/' ) );
+define( 'WEN_RESPONSIVE_COLUMNS_URL', rtrim( plugin_dir_url( __FILE__ ), '/' ) );
+
+
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-wen-responsive-columns-activator.php
