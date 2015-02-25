@@ -8,7 +8,7 @@
       // Grid value
       var wrc_grid = $('#wrc-grid').val();
       var options_html = '';
-      options_html += '<option value="">Select</option>';
+      options_html += '<option value="">' + WRC_OBJ.lang.select + '</option>';
       if( wrc_grid ){
         for( var i = 0; i < wrc_grid ; i++ ){
           var opt = i + 1.0;
@@ -50,9 +50,17 @@
 
       // Grid value
       var wrc_grid = $('#wrc-grid').val();
+      if ( ! wrc_grid ) {
+        alert(WRC_OBJ.lang.please_select_grid);
+        return output;
+      }
 
       // Column number
       var wrc_column_number = $('#wrc-column-number').val();
+      if ( ! wrc_column_number ) {
+        alert(WRC_OBJ.lang.please_select_column);
+        return output;
+      }
 
       // Array of column mix
       var mix_array = new Array();
@@ -66,6 +74,7 @@
 
       // check if all fields are filled
       if( mix_array.length != wrc_column_number ){
+        alert(WRC_OBJ.lang.invalid_column_mix);
         return output;
       }
       // Check sum of column mix
@@ -74,6 +83,7 @@
         mix_sum += item * 1.0;
       });
       if( mix_sum != wrc_grid ){
+        alert(WRC_OBJ.lang.invalid_column_mix);
         return output;
       }
       output = true;
@@ -133,7 +143,7 @@
             }
 
             shortcode += ']';
-            shortcode += 'Your content';
+            shortcode += WRC_OBJ.lang.your_content;
             shortcode += '[/wrc_column]';
 
           }
@@ -146,10 +156,6 @@
         // closes Thickbox
         tb_remove();
       } //end if
-      else{
-        alert('Invalid column mix');
-      }
-
 
     });
   });

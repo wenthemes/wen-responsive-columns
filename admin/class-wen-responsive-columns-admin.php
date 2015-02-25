@@ -184,19 +184,19 @@ class WEN_Responsive_Columns_Admin {
 	 */
 	public function enqueue_scripts() {
 
-		/**
-		 * This function is provided for demonstration purposes only.
-		 *
-		 * An instance of this class should be passed to the run() function
-		 * defined in WEN_Responsive_Columns_Loader as all of the hooks are defined
-		 * in that particular class.
-		 *
-		 * The WEN_Responsive_Columns_Loader will then create the relationship
-		 * between the defined hooks and the functions defined in this
-		 * class.
-		 */
+		wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wen-responsive-columns-admin.js', array( 'jquery' ), $this->version, false );
+    $extra_array = array(
+      'lang' => array(
+        'select'               => __( 'Select', 'wen-responsive-columns' ),
+        'your_content'         => __( 'Your content', 'wen-responsive-columns' ),
+        'please_select_grid'   => __( 'Please select grid', 'wen-responsive-columns' ),
+        'please_select_column' => __( 'Please select column', 'wen-responsive-columns' ),
+        'invalid_column_mix'   => __( 'Invalid column mix', 'wen-responsive-columns' ),
+      ),
+    );
+    wp_localize_script( $this->plugin_name, 'WRC_OBJ', $extra_array );
+    wp_enqueue_script( $this->plugin_name );
 
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wen-responsive-columns-admin.js', array( 'jquery' ), $this->version, false );
 
 	}
 
