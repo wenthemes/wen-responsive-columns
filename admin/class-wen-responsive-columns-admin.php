@@ -267,14 +267,48 @@ class WEN_Responsive_Columns_Admin {
               e.preventDefault();
 
               var is_valid = wrc_validate_column_mix();
-              if( true == is_valid ){
+              if( true === is_valid ){
                 // Column mix is valid; now do shortcode stuff
-                var shortcode = '[wrc_column';
-                var wls_slide = $('#wls-slide').val();
-                if ( '' != wls_slide) {
-                  shortcode += ' id="'+wls_slide+'"';
+                var shortcode = '';
+                var wrc_grid = $('#wrc-grid').val();
+                var wrc_column_number = $('#wrc-column-number').val();
+                if( wrc_column_number ){
+
+                  // Array of column mix
+                  var mix_array = new Array();
+
+                  $('.column-mix-item').each( function(index){
+                    var mix_value = $(this).val();
+                    if ( mix_value) {
+                      mix_array[mix_array.length] = mix_value;
+                    }
+                  }); //end each
+
+                  for( var i =0; i < wrc_column_number; i++ ){
+
+                    shortcode += '[wrc_column';
+                    // Grid attribute
+                    if ( '' != wrc_grid) {
+                      shortcode += ' grid="' + wrc_grid + '"';
+                    }
+                    // Width attribute
+                    shortcode += ' width="' + mix_array[i] + '"';
+
+                    // Type attribute
+                    if ( 0 == i ) {
+                      shortcode += ' type="start"';
+                    }
+                    else if ( ( wrc_column_number - 1 ) == i ) {
+                      shortcode += ' type="end"';
+                    }
+
+                    shortcode += ']';
+                    shortcode += 'Your content';
+                    shortcode += '[/wrc_column]';
+
+                  }
+
                 }
-                shortcode += ']';
 
                 // inserts the shortcode into the active editor
                 tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
