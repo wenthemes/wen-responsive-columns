@@ -133,6 +133,9 @@ class WEN_Responsive_Columns_Admin {
         clear: both;
         margin-bottom: 10px;
       }
+      .wrc-form-content .column-mix-item{
+        max-width: 50px;
+      }
 
       </style>
         <div class="wrc-form-content">
@@ -157,6 +160,11 @@ class WEN_Responsive_Columns_Admin {
           </div><!-- .form-row -->
 
           <div class="form-row">
+            <label><?php _e( 'Column Mix:', 'wen-responsive-columns' ); ?></label>
+            <div id="wrc-column-mix">asdf</div><!-- #wrc-column-mix -->
+          </div><!-- .form-row -->
+
+          <div class="form-row">
             <input type="button" id="WRC-submit" class="button-primary" value="<?php esc_attr( _e( 'Insert', 'wen-responsive-columns' ) ); ?>" name="submit" disabled="disabled" />
           </div><!-- .form-row -->
 
@@ -170,27 +178,50 @@ class WEN_Responsive_Columns_Admin {
               // Grid value
               var wrc_grid = $('#wrc-grid').val();
               var options_html = '';
-              if( ! wrc_grid ){
-                options_html += '<option value="">Select</option>';
-              }
-              else{
+              options_html += '<option value="">Select</option>';
+              if( wrc_grid ){
                 for( var i = 0; i < wrc_grid ; i++ ){
                   var opt = i + 1.0;
-                  // Make 2 column selected by default
-                  var selected_text = ( 1 == i ) ? ' selected="selected" ' : '';
                   // Append option
-                  options_html += '<option value="' + opt + '"' + selected_text + '>' + opt + '</option>';
+                  options_html += '<option value="' + opt + '">' + opt + '</option>';
                 }
               }
               // Empty all select option at first
               $('#wrc-column-number').html('');
               // Append options html to select field
               $('#wrc-column-number').append( options_html );
-            }
+
+            }// end function
+
+            // Populate text fields according to number of columns
+            function wrc_populate_text_fields_for_column(){
+
+              // Column number
+              var wrc_column_number = $('#wrc-column-number').val();
+
+              var texts_html = '';
+              if( wrc_column_number ){
+                for( var i = 0; i < wrc_column_number ; i++ ){
+                  texts_html += '<input type="number" class="column-mix-item" maxlength="2" min="1" max="12" />';
+                }
+              }
+              else{
+                // No value
+                texts_html = '';
+              }
+              // Inject html
+              $('#wrc-column-mix').html( texts_html );
+
+            } // end function
 
             // Trigger change of Grid field
             $('#wrc-grid').change(function(e){
               wrc_populate_columns();
+            });
+
+            // Trigger change of Column field
+            $('#wrc-column-number').change(function(e){
+              wrc_populate_text_fields_for_column();
             });
 
 
