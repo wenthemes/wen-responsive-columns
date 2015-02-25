@@ -21,7 +21,7 @@
                     var width = jQuery(window).width(), H = jQuery(window).height(), W = ( 720 < width ) ? 720 : width;
                     W = W - 80;
                     H = H - 84;
-                    tb_show( ed.getLang('wen_responsive_columns.popup_title'), '#TB_inline?width=' + W + '&height=' + H + '&inlineId=WRC-popup-form' );
+                    tb_show( ed.getLang('wen_responsive_columns.popup_title'), '#TB_inline?width=' + W + '&height=' + H + '&inlineId=wrc-popup-form' );
                     return;
                 }
             });

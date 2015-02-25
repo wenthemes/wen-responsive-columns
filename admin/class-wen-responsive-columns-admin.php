@@ -123,21 +123,8 @@ class WEN_Responsive_Columns_Admin {
    */
   function tinymce_popup(){
     ?>
-    <div id="WRC-popup-form" style="display:none">
+    <div id="wrc-popup-form" style="display:none">
       <div>
-      <style>
-      .wrc-form-content{
-        margin: 5px;
-      }
-      .wrc-form-content .form-row{
-        clear: both;
-        margin-bottom: 10px;
-      }
-      .wrc-form-content .column-mix-item{
-        max-width: 50px;
-      }
-
-      </style>
         <div class="wrc-form-content">
 
           <div class="form-row">
@@ -327,7 +314,7 @@ class WEN_Responsive_Columns_Admin {
 
 
       </div>
-    </div><!-- #WRC-popup-form -->
+    </div><!-- #wrc-popup-form -->
     <?php
 
 
