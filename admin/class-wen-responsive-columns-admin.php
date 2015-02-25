@@ -129,16 +129,72 @@ class WEN_Responsive_Columns_Admin {
       .wrc-form-content{
         margin: 5px;
       }
+      .wrc-form-content .form-row{
+        clear: both;
+        margin-bottom: 10px;
+      }
+
       </style>
         <div class="wrc-form-content">
-          <p class="submit">
-            <input type="button" id="WRC-submit" class="button-primary" value="<?php esc_attr( _e( 'Insert', 'wen-responsive-columns' ) ); ?>" name="submit" />
-          </p>
-          asdf
+
+          <div class="form-row">
+            <label for="wrc-grid"><?php _e( 'Grid:', 'wen-responsive-columns' ); ?></label>
+            <select name="wrc-grid" id="wrc-grid">
+              <option value=""><?php _e( 'Select', 'wen-responsive-columns' ); ?></option>
+              <option value="2"><?php _e( '2', 'wen-responsive-columns' ); ?></option>
+              <option value="3"><?php _e( '3', 'wen-responsive-columns' ); ?></option>
+              <option value="4"><?php _e( '4', 'wen-responsive-columns' ); ?></option>
+              <option value="5"><?php _e( '5', 'wen-responsive-columns' ); ?></option>
+              <option value="12"><?php _e( '12', 'wen-responsive-columns' ); ?></option>
+            </select>
+          </div><!-- .form-row -->
+
+          <div class="form-row">
+            <label for="wrc-column-number"><?php _e( 'Number of Columns:', 'wen-responsive-columns' ); ?></label>
+            <select name="wrc-column-number" id="wrc-column-number">
+              <option value=""><?php _e( 'Select', 'wen-responsive-columns' ); ?></option>
+            </select>
+          </div><!-- .form-row -->
+
+          <div class="form-row">
+            <input type="button" id="WRC-submit" class="button-primary" value="<?php esc_attr( _e( 'Insert', 'wen-responsive-columns' ) ); ?>" name="submit" disabled="disabled" />
+          </div><!-- .form-row -->
+
         </div><!-- .wrc-form-content -->
 
         <script type="text/javascript">
           jQuery(document).ready(function($){
+
+            // Populate columns select options
+            function wrc_populate_columns(){
+              // Grid value
+              var wrc_grid = $('#wrc-grid').val();
+              var options_html = '';
+              if( ! wrc_grid ){
+                options_html += '<option value="">Select</option>';
+              }
+              else{
+                for( var i = 0; i < wrc_grid ; i++ ){
+                  var opt = i + 1.0;
+                  // Make 2 column selected by default
+                  var selected_text = ( 1 == i ) ? ' selected="selected" ' : '';
+                  // Append option
+                  options_html += '<option value="' + opt + '"' + selected_text + '>' + opt + '</option>';
+                }
+              }
+              // Empty all select option at first
+              $('#wrc-column-number').html('');
+              // Append options html to select field
+              $('#wrc-column-number').append( options_html );
+            }
+
+            // Trigger change of Grid field
+            $('#wrc-grid').change(function(e){
+              wrc_populate_columns();
+            });
+
+
+            // Trigger Submit button
             $('#WRC-submit').click(function(e){
               e.preventDefault();
 
