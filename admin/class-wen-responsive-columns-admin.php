@@ -161,11 +161,11 @@ class WEN_Responsive_Columns_Admin {
 
           <div class="form-row">
             <label><?php _e( 'Column Mix:', 'wen-responsive-columns' ); ?></label>
-            <div id="wrc-column-mix">asdf</div><!-- #wrc-column-mix -->
+            <div id="wrc-column-mix">&nbsp;</div><!-- #wrc-column-mix -->
           </div><!-- .form-row -->
 
           <div class="form-row">
-            <input type="button" id="WRC-submit" class="button-primary" value="<?php esc_attr( _e( 'Insert', 'wen-responsive-columns' ) ); ?>" name="submit" disabled="disabled" />
+            <input type="button" id="wrc-submit" class="button-primary" value="<?php esc_attr( _e( 'Insert', 'wen-responsive-columns' ) ); ?>" name="submit" />
           </div><!-- .form-row -->
 
         </div><!-- .wrc-form-content -->
@@ -214,6 +214,43 @@ class WEN_Responsive_Columns_Admin {
 
             } // end function
 
+            // Validate column mix
+            function wrc_validate_column_mix(){
+              var output = false;
+
+              // Grid value
+              var wrc_grid = $('#wrc-grid').val();
+
+              // Column number
+              var wrc_column_number = $('#wrc-column-number').val();
+
+              // Array of column mix
+              var mix_array = new Array();
+
+              $('.column-mix-item').each( function(index){
+                var mix_value = $(this).val();
+                if ( mix_value) {
+                  mix_array[mix_array.length] = mix_value;
+                }
+              }); //end each
+
+              // check if all fields are filled
+              if( mix_array.length != wrc_column_number ){
+                return output;
+              }
+              // Check sum of column mix
+              var mix_sum = 0;
+              jQuery.each(mix_array, function(index, item) {
+                mix_sum += item * 1.0;
+              });
+              if( mix_sum != wrc_grid ){
+                return output;
+              }
+              output = true;
+              return output;
+
+            }
+
             // Trigger change of Grid field
             $('#wrc-grid').change(function(e){
               wrc_populate_columns();
@@ -226,21 +263,29 @@ class WEN_Responsive_Columns_Admin {
 
 
             // Trigger Submit button
-            $('#WRC-submit').click(function(e){
+            $('#wrc-submit').click(function(e){
               e.preventDefault();
 
-              var shortcode = '[wrc_column';
-              var wls_slide = $('#wls-slide').val();
-              if ( '' != wls_slide) {
-                shortcode += ' id="'+wls_slide+'"';
+              var is_valid = wrc_validate_column_mix();
+              if( true == is_valid ){
+                // Column mix is valid; now do shortcode stuff
+                var shortcode = '[wrc_column';
+                var wls_slide = $('#wls-slide').val();
+                if ( '' != wls_slide) {
+                  shortcode += ' id="'+wls_slide+'"';
+                }
+                shortcode += ']';
+
+                // inserts the shortcode into the active editor
+                tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
+
+                // closes Thickbox
+                tb_remove();
+              } //end if
+              else{
+                alert('Invalid column mix');
               }
-              shortcode += ']';
 
-              // inserts the shortcode into the active editor
-              tinyMCE.activeEditor.execCommand('mceInsertContent', 0, shortcode);
-
-              // closes Thickbox
-              tb_remove();
 
             });
           });
