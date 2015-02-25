@@ -180,9 +180,6 @@ class WEN_Responsive_Columns {
     $this->loader->add_action( 'admin_init', $plugin_admin, 'tinymce_button' );
     $this->loader->add_action( 'admin_footer', $plugin_admin, 'tinymce_popup' );
 
-    // Templates
-    $this->loader->add_action( 'admin_footer', $plugin_admin, 'html_templates' );
-
     // Tinymce language
     $this->loader->add_filter( 'mce_external_languages', $plugin_admin, 'tinymce_external_language' );
 

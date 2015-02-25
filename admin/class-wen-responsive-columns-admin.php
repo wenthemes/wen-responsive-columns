@@ -123,34 +123,26 @@ class WEN_Responsive_Columns_Admin {
    */
   function tinymce_popup(){
     ?>
-    <div id="WLS-popup-form" style="display:none">
+    <div id="WRC-popup-form" style="display:none">
       <div>
-      <?php
-      $args = array(
-        'posts_per_page' => -1,
-        );
-      $all_slides = get_posts($args);
-       ?>
-       <?php if ( ! empty($all_slides ) ): ?>
-          <p><?php _e( 'Select Slider', 'wen-logo-slider' ); ?>
-          <select name="wls-slide" id="wls-slide">
-          <?php foreach ($all_slides as $key => $slide): ?>
-
-              <option value="<?php echo esc_attr( $slide->ID); ?>"><?php echo esc_attr( $slide->post_title); ?></option>
-
-          <?php endforeach ?>
-          </select>
-          </p>
+      <style>
+      .wrc-form-content{
+        margin: 5px;
+      }
+      </style>
+        <div class="wrc-form-content">
           <p class="submit">
-            <input type="button" id="WLS-submit" class="button-primary" value="<?php esc_attr( _e( 'Insert', 'wen-logo-slider' ) ); ?>" name="submit" />
+            <input type="button" id="WRC-submit" class="button-primary" value="<?php esc_attr( _e( 'Insert', 'wen-responsive-columns' ) ); ?>" name="submit" />
           </p>
-          <script type="text/javascript">
+          asdf
+        </div><!-- .wrc-form-content -->
 
+        <script type="text/javascript">
           jQuery(document).ready(function($){
-            $('#WLS-submit').click(function(e){
+            $('#WRC-submit').click(function(e){
               e.preventDefault();
 
-              var shortcode = '[WLS';
+              var shortcode = '[wrc_column';
               var wls_slide = $('#wls-slide').val();
               if ( '' != wls_slide) {
                 shortcode += ' id="'+wls_slide+'"';
@@ -165,76 +157,15 @@ class WEN_Responsive_Columns_Admin {
 
             });
           });
+        </script>
 
-             </script>
-
-        <?php else: ?>
-          <p><strong><?php _e( 'No slider found', 'wen-logo-slider' ); ?></strong></p>
-       <?php endif ?>
 
       </div>
-    </div><!-- #WLS-popup-form -->
+    </div><!-- #WRC-popup-form -->
     <?php
 
 
   }
-
-
-  /**
-   * HTML template for TinyMce opup.
-   *
-   * @since    1.0.0
-   */
-  function html_templates(){
-    ?>
-    <script type="text/template" id='template-wls-slider-item'>
-      <div class="slide-item-wrap">
-        <div class="slide-item-left">
-          <div class="wls-form-row">
-            <input type="hidden" name="slide_image_id[]" value="" class="wls-slide-image-id" />
-            <input type="button" class="wls-select-img button button-primary" value="<?php _e( 'Upload', 'wen-logo-slider' ); ?>" data-uploader_button_text="<?php _e( 'Select', 'wen-logo-slider' );?>" data-uploader_title="<?php _e( 'Select Image', 'wen-logo-slider' );?>" />
-            <div class="image-preview-wrap" style="display:none;" >
-              <img class="img-preview" alt="<?php _e( 'Preview', 'wen-logo-slider' ); ?>" src="" />
-              <a href="#" class="btn-wls-remove-image-upload">
-                <span class="dashicons dashicons-dismiss"></span>
-              </a>
-            </div>
-
-          </div>
-        </div>
-        <div class="slide-item-right">
-
-          <div class="wls-form-row">
-            <i class="dashicons dashicons-editor-textcolor"></i>
-            <input type="text" name="slide_title[]" value="" placeholder="<?php _e( 'Enter Title', 'wen-logo-slider' ); ?>" class="txt-slide-title regular-text code" />
-            <span class="description"><?php _e( 'Enter Title', 'wen-logo-slider' ); ?></span>
-          </div>
-
-          <div class="wls-form-row">
-            <i class="dashicons dashicons-admin-site"></i>
-
-            <input type="text" name="slide_url[]" value="" placeholder="<?php _e( 'Enter URL', 'wen-logo-slider' ); ?>" class="txt-slide-url regular-text code" />
-            <span class="description"><?php _e( 'Enter URL', 'wen-logo-slider' ); ?></span>
-          </div>
-
-          <div class="wls-form-row">
-            <i class="dashicons dashicons-share-alt2"></i>
-            <select name="slide_new_window[]">
-              <option value="yes"><?php _e( 'Yes', 'wen-logo-slider' ); ?></option>
-              <option value="no"><?php _e( 'No', 'wen-logo-slider' ); ?></option>
-            </select>
-            <span class="description"><?php _e( 'Open in new window', 'wen-logo-slider' ); ?></span>
-
-          </div>
-
-          <input type="button" value="<?php  esc_attr( _e( 'Remove', 'wen-logo-slider' ) ); ?>" class="button btn-remove-slide-item"/>
-
-        </div>
-    </script>
-
-    <?php
-  }
-
 
   /**
    * Load TinyMce languages file.
