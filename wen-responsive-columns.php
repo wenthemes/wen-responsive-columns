@@ -3,19 +3,14 @@
 /**
  * The plugin bootstrap file
  *
- * This file is read by WordPress to generate the plugin information in the plugin
- * Dashboard. This file also includes all of the dependencies used by the plugin,
- * registers the activation and deactivation functions, and defines a function
- * that starts the plugin.
- *
  * @link              http://wenthemes.com
  * @since             1.0.0
  * @package           WEN_Responsive_Columns
  *
  * @wordpress-plugin
  * Plugin Name:       WEN Responsive Columns
- * Plugin URI:        http://wenthemes.comwen-responsive-columns-uri/
- * Description:       WEN Responsive Columns.
+ * Plugin URI:        https://wordpress.org/plugins/wen-responsive-columns/
+ * Description:       Easily display columnized content in your pages or posts.
  * Version:           1.0.0
  * Author:            WEN Themes
  * Author URI:        http://wenthemes.com

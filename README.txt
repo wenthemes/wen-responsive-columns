@@ -8,11 +8,11 @@ Stable tag: 1.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Easily add columns in your pages or posts
+Easily display columnized content in your pages or posts.
 
 == Description ==
 
-<h3>WEN Responsive Columns</h3>Easily add columns in your pages or posts.
+<h3>WEN Responsive Columns</h3>WEN Responsive Columns provide you a shortcode which will help you display columnized content. Onle one shortcode `[wrc_column]` is there in the plugin. But one shortcode is enough for generating multiple mixex of columns. Grid could be 2,3,4,6 or 12. You can easily add columns using button in the editor. Select your desired layout and and shortcode. That's it.
 
 Plugin: [Home Page](http://wenthemes.com/item/wordpress-plugins/wen-responsive-columns/)
 
@@ -53,7 +53,8 @@ Nice, make a post on the [Support Forum](http://wordpress.org/support/plugin/wen
 
 == Screenshots ==
 
-1. Column Sample
+1. Shortcode Generator
+2. Column sample
 
 == Changelog ==
 
