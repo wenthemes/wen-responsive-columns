@@ -11,7 +11,7 @@
  * Plugin Name:       WEN Responsive Columns
  * Plugin URI:        https://wordpress.org/plugins/wen-responsive-columns/
  * Description:       Easily display columnized content in your pages or posts.
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            WEN Themes
  * Author URI:        http://wenthemes.com
  * License:           GPL-2.0+
