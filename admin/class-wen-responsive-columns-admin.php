@@ -84,7 +84,7 @@ class WEN_Responsive_Columns_Admin {
    */
   function tinymce_button(){
 
-    if ( current_user_can( 'edit_posts' ) && current_user_can( 'edit_pages' ) ) {
+    if ( current_user_can( 'edit_posts' ) || current_user_can( 'edit_pages' ) ) {
          add_filter( 'mce_buttons', array($this,'register_tinymce_button' ) );
          add_filter( 'mce_external_plugins', array($this,'add_tinymce_button' ) );
     }
