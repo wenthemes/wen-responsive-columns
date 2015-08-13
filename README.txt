@@ -1,6 +1,6 @@
 === WEN Responsive Columns ===
 Contributors: wenthemes
-Donate link: http://wenthemes.com
+Donate link: http://wenthemes.com/item/wordpress-plugins/wen-responsive-columns/
 Tags: columns, responsive, column, column shortcode, grid, responsive columns, layout,responsive layout
 Requires at least: 3.9
 Tested up to: 4.1
@@ -12,7 +12,7 @@ Easily display columnized content in your pages or posts.
 
 == Description ==
 
-<h3>WEN Responsive Columns</h3>WEN Responsive Columns provides you with a shortcode that will help display columnized content. Just one shortcode `[wrc_column]` is in effect for convenience but the sole is enough for generating multiple mixes of columns. Grids could be 2, 3, 4, 5 or 12 and you can easily add columns using button in the editor. Select your desired layout and use shortcode. That's it !
+WEN Responsive Columns provides you with a shortcode that will help display columnized content. Just one shortcode `[wrc_column]` is in effect for convenience but the sole is enough for generating multiple mixes of columns. Grids could be 2, 3, 4, 5 or 12 and you can easily add columns using button in the editor. Select your desired layout and use shortcode. That's it !
 
 Plugin: [Home Page](http://wenthemes.com/item/wordpress-plugins/wen-responsive-columns/)
 
