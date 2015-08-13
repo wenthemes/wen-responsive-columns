@@ -178,3 +178,8 @@
   }
 
 }
+
+/* Gravity Form fix */
+.gform_wrapper br{
+  display: none;
+}
