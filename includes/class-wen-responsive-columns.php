@@ -69,7 +69,7 @@ class WEN_Responsive_Columns {
 	public function __construct() {
 
 		$this->plugin_name = 'wen-responsive-columns';
-		$this->version = '1.0.1';
+		$this->version = '1.1';
 
 		$this->load_dependencies();
 		$this->set_locale();
