@@ -58,10 +58,13 @@ Nice, make a post on the [Support Forum](http://wordpress.org/support/plugin/wen
 
 == Changelog ==
 
+= 1.1 =
+* Fix: Minor bug fixes
+
 = 1.0.1 =
 * Fix: Column misplaced in some theme
 * Fix: User role bug
-* Minor bug fixes
+* Fix: Minor bug fixes
 
 = 1.0.0 =
 * Initial release
