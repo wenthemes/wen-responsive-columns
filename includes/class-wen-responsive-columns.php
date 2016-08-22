@@ -69,13 +69,13 @@ class WEN_Responsive_Columns {
 	public function __construct() {
 
 		$this->plugin_name = 'wen-responsive-columns';
-		$this->version = '1.1';
+		$this->version = '1.1.1';
 
 		$this->load_dependencies();
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-    $this->init_shortcodes();
+	    $this->init_shortcodes();
 
 	}
 
@@ -109,10 +109,10 @@ class WEN_Responsive_Columns {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wen-responsive-columns-i18n.php';
 
-    /**
-     * The class responsible for defining shortcodes of the plugin.
-     */
-    require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wen-responsive-columns-shortcode.php';
+	    /**
+	     * The class responsible for defining shortcodes of the plugin.
+	     */
+		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wen-responsive-columns-shortcode.php';
 
 
 		/**

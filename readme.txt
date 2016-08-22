@@ -1,10 +1,10 @@
 === WEN Responsive Columns ===
-Contributors: wenthemes
+Contributors: wenthemes, anilbasnet
 Donate link: http://wenthemes.com/item/wordpress-plugins/wen-responsive-columns/
-Tags: columns, responsive, column, column shortcode, grid, responsive columns, layout,responsive layout
-Requires at least: 4.0
-Tested up to: 4.3
-Stable tag: 1.1
+Tags: columns, responsive, column, column shortcode, grid, responsive columns, layout, responsive layout
+Requires at least: 4.4
+Tested up to: 4.6
+Stable tag: 1.1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -57,6 +57,10 @@ Nice, make a post on the [Support Forum](http://wordpress.org/support/plugin/wen
 2. Column sample
 
 == Changelog ==
+
+= 1.1.1 =
+* Fix: Text domain issue
+* Fix: Minor bug fixes
 
 = 1.1 =
 * Fix: Minor bug fixes

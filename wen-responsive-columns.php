@@ -1,23 +1,17 @@
 <?php
-
 /**
- * The plugin bootstrap file
- *
- * @link              http://wenthemes.com
- * @since             1.0.0
- * @package           WEN_Responsive_Columns
- *
  * @wordpress-plugin
  * Plugin Name:       WEN Responsive Columns
  * Plugin URI:        http://wenthemes.com/item/wordpress-plugins/wen-responsive-columns/
  * Description:       Easily display columnized content in your pages or posts.
- * Version:           1.1
+ * Version:           1.1.1
  * Author:            WEN Themes
  * Author URI:        http://wenthemes.com
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wen-responsive-columns
- * Domain Path:       /languages
+ *
+ * @package           WEN_Responsive_Columns
  */
 
 // If this file is called directly, abort.
@@ -25,7 +19,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-// Define
+// Define.
 define( 'WEN_RESPONSIVE_COLUMNS_NAME', 'WEN Responsive Columns' );
 define( 'WEN_RESPONSIVE_COLUMNS_SLUG', 'wen-responsive-columns' );
 define( 'WEN_RESPONSIVE_COLUMNS_BASENAME', basename( dirname( __FILE__ ) ) );
