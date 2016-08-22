@@ -1,17 +1,16 @@
 <?php
 /**
- * @wordpress-plugin
- * Plugin Name:       WEN Responsive Columns
- * Plugin URI:        http://wenthemes.com/item/wordpress-plugins/wen-responsive-columns/
- * Description:       Easily display columnized content in your pages or posts.
- * Version:           1.1.1
- * Author:            WEN Themes
- * Author URI:        http://wenthemes.com
- * License:           GPL-2.0+
- * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
- * Text Domain:       wen-responsive-columns
+ * Plugin Name: WEN Responsive Columns
+ * Plugin URI: http://wenthemes.com/item/wordpress-plugins/wen-responsive-columns/
+ * Description: Easily display columnized content in your pages or posts.
+ * Version: 1.1.1
+ * Author: WEN Themes
+ * Author URI: http://wenthemes.com
+ * License: GPL-2.0+
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.txt
+ * Text Domain: wen-responsive-columns
  *
- * @package           WEN_Responsive_Columns
+ * @package WEN_Responsive_Columns
  */
 
 // If this file is called directly, abort.
