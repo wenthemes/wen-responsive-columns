@@ -121,7 +121,7 @@ class WEN_Responsive_Columns_Admin {
    *
    * @since    1.0.0
    */
-  function tinymce_popup(){
+  function tinymce_popup() {
     ?>
     <div id="wrc-popup-form" style="display:none">
       <div>
@@ -131,11 +131,11 @@ class WEN_Responsive_Columns_Admin {
             <label for="wrc-grid"><?php _e( 'Grid:', 'wen-responsive-columns' ); ?></label>
             <select name="wrc-grid" id="wrc-grid">
               <option value=""><?php _e( 'Select', 'wen-responsive-columns' ); ?></option>
-              <option value="2"><?php _e( '2', 'wen-responsive-columns' ); ?></option>
-              <option value="3"><?php _e( '3', 'wen-responsive-columns' ); ?></option>
-              <option value="4"><?php _e( '4', 'wen-responsive-columns' ); ?></option>
-              <option value="5"><?php _e( '5', 'wen-responsive-columns' ); ?></option>
-              <option value="12"><?php _e( '12', 'wen-responsive-columns' ); ?></option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+              <option value="12">12</option>
             </select>
             <p class="description"><?php _e( 'Please select grid. Grid represents maximum number of columns allowed.', 'wen-responsive-columns' ); ?></p><!-- .description -->
           </div><!-- .form-row -->
@@ -189,17 +189,17 @@ class WEN_Responsive_Columns_Admin {
 	public function enqueue_scripts() {
 
 		wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wen-responsive-columns-admin.js', array( 'jquery' ), $this->version, false );
-    $extra_array = array(
-      'lang' => array(
-        'select'               => __( 'Select', 'wen-responsive-columns' ),
-        'your_content'         => __( 'Your content', 'wen-responsive-columns' ),
-        'please_select_grid'   => __( 'Please select grid', 'wen-responsive-columns' ),
-        'please_select_column' => __( 'Please select column', 'wen-responsive-columns' ),
-        'invalid_column_mix'   => __( 'Invalid column mix', 'wen-responsive-columns' ),
-      ),
-    );
-    wp_localize_script( $this->plugin_name, 'WRC_OBJ', $extra_array );
-    wp_enqueue_script( $this->plugin_name );
+		$extra_array = array(
+			'lang' => array(
+				'select'               => __( 'Select', 'wen-responsive-columns' ),
+				'your_content'         => __( 'Your content', 'wen-responsive-columns' ),
+				'please_select_grid'   => __( 'Please select grid', 'wen-responsive-columns' ),
+				'please_select_column' => __( 'Please select column', 'wen-responsive-columns' ),
+				'invalid_column_mix'   => __( 'Invalid column mix', 'wen-responsive-columns' ),
+				),
+			);
+		wp_localize_script( $this->plugin_name, 'WRC_OBJ', $extra_array );
+		wp_enqueue_script( $this->plugin_name );
 
 
 	}
