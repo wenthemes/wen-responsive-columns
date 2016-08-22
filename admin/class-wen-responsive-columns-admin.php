@@ -130,7 +130,7 @@ class WEN_Responsive_Columns_Admin {
           <div class="form-row">
             <label for="wrc-grid"><?php _e( 'Grid:', 'wen-responsive-columns' ); ?></label>
             <select name="wrc-grid" id="wrc-grid">
-              <option value=""><?php _e( 'Select', 'wen-responsive-columns' ); ?></option>
+              <option value=""><?php _e( '&mdash; Select &mdash;', 'wen-responsive-columns' ); ?></option>
               <option value="2">2</option>
               <option value="3">3</option>
               <option value="4">4</option>
@@ -143,7 +143,7 @@ class WEN_Responsive_Columns_Admin {
           <div class="form-row">
             <label for="wrc-column-number"><?php _e( 'Number of Columns:', 'wen-responsive-columns' ); ?></label>
             <select name="wrc-column-number" id="wrc-column-number">
-              <option value=""><?php _e( 'Select', 'wen-responsive-columns' ); ?></option>
+              <option value=""><?php _e( '&mdash; Select &mdash;', 'wen-responsive-columns' ); ?></option>
             </select>
             <p class="description"><?php _e( 'Please select number of columns.', 'wen-responsive-columns' ); ?></p><!-- .description -->
 
@@ -191,11 +191,11 @@ class WEN_Responsive_Columns_Admin {
 		wp_register_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wen-responsive-columns-admin.js', array( 'jquery' ), $this->version, false );
 		$extra_array = array(
 			'lang' => array(
-				'select'               => __( 'Select', 'wen-responsive-columns' ),
+				'select'               => __( '&mdash; Select &mdash;', 'wen-responsive-columns' ),
 				'your_content'         => __( 'Your content', 'wen-responsive-columns' ),
-				'please_select_grid'   => __( 'Please select grid', 'wen-responsive-columns' ),
-				'please_select_column' => __( 'Please select column', 'wen-responsive-columns' ),
-				'invalid_column_mix'   => __( 'Invalid column mix', 'wen-responsive-columns' ),
+				'please_select_grid'   => __( 'Please select grid.', 'wen-responsive-columns' ),
+				'please_select_column' => __( 'Please select column.', 'wen-responsive-columns' ),
+				'invalid_column_mix'   => __( 'Invalid column mix.', 'wen-responsive-columns' ),
 				),
 			);
 		wp_localize_script( $this->plugin_name, 'WRC_OBJ', $extra_array );

@@ -26,7 +26,7 @@ msgstr ""
 #: admin/class-wen-responsive-columns-admin.php:133
 #: admin/class-wen-responsive-columns-admin.php:146
 #: admin/class-wen-responsive-columns-admin.php:194
-msgid "Select"
+msgid "&mdash; Select &mdash;"
 msgstr ""
 
 #: admin/class-wen-responsive-columns-admin.php:140
@@ -60,15 +60,15 @@ msgid "Your content"
 msgstr ""
 
 #: admin/class-wen-responsive-columns-admin.php:196
-msgid "Please select grid"
+msgid "Please select grid."
 msgstr ""
 
 #: admin/class-wen-responsive-columns-admin.php:197
-msgid "Please select column"
+msgid "Please select column."
 msgstr ""
 
 #: admin/class-wen-responsive-columns-admin.php:198
-msgid "Invalid column mix"
+msgid "Invalid column mix."
 msgstr ""
 
 #. Plugin Name of the plugin/theme
